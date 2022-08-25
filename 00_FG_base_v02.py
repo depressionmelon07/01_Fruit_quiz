@@ -31,7 +31,10 @@ def ask_questions():
     question_number = 1
 
     for k, v in questions.items():
-        print(k)
+        if question_number > how_much:
+            end_game(correct_answers)
+            return
+        print(question_number, ".)", k)
 
         [print(x) for x in options_lists[question_number - 1]]
         guess = num_check("Please choose from (1, 2, 3 or 4): ", 0, 4)
@@ -40,7 +43,7 @@ def ask_questions():
         correct_answers += check_guess(v, guess)
         question_number += 1
 
-        print(f"You have answered {correct_answers} correctly so far.")
+        print(f"You have answered {correct_answers} correctly.")
 
 
 def num_check(question, low, high):
@@ -70,6 +73,11 @@ def check_guess(answer, guess):
         print("Sorry, that's incorrect")
         return 0
 
+
+def end_game(final_score):
+    print("Thank you for playing! Your final score is ", final_score)
+    return final_score
+
 # Main routine under this line ******************************************
 
 
@@ -78,12 +86,8 @@ played_before = yes_no("Have you played this game before?")
 if played_before == "no":
     instructions()
 
-# Ask user how much they want to play with...
+# Ask user how many questions (rounds) they want to play...
 how_much = num_check("How many rounds would you like to play?", 0, 10)
-
-print("You will be playing {} rounds ".format(how_much))
-
-print("Program continues ")
 
 # The list of questions that are being asked and their respective answers
 questions = {
@@ -112,4 +116,6 @@ options_lists = [["1) Banana", "2) Pumpkin", "3) Apple", "4) Grape"],
                  ["1) Yellow", "2) Pink", "3) Blue", "4) Orange"],
                  ["1) Watermelon", "2) Kiwi", "3) Pumpkin", "4) Grape"]]
 
+# The command which starts the question and answer portion of the game
 ask_questions()
+
