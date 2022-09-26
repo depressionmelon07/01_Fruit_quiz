@@ -17,9 +17,12 @@ def yes_no(question):
 
 
 def instructions():
-    print("***** How to play *****")
+    statement_creator("How to play", "*")
     print()
-    print("The rules of the game will be here")
+    statement_creator("Choose to play between 1 and 10 rounds.\n"
+                      "When the questions come up, choose the right answer using 1, 2, 3 and 4.\n"
+                      "Most importantly, have FUN!", "*")
+
     print()
     return ""
 
@@ -47,7 +50,8 @@ def ask_questions():
 
 
 def num_check(question, low, high):
-    error = "Please enter a whole integer between 1 and 10\n"
+    error = "{} {} {} {}".format("Please enter an integer between", low, "and", high)
+    # Using this formatting allows numcheck to be used in any circumstance
     # Changed from while valid = false to while True because it is not a closing loop any ways.
     while True:
         try:
@@ -67,7 +71,7 @@ def num_check(question, low, high):
 
 def check_guess(answer, guess):
     if answer == guess:
-        print("Correct")
+        print("That's correct!")
         return 1
     else:
         print("Sorry, that's incorrect")
@@ -75,8 +79,24 @@ def check_guess(answer, guess):
 
 
 def end_game(final_score):
-    print("Thank you for playing! Your final score is ", final_score)
+    # to put together: "thanks for playing", score, the variable for decorator:
+    final_score = "{} {}".format("Thank you for playing! Your final score is ", final_score)
+    statement_creator(final_score, "*")
     return final_score
+
+
+def statement_creator(statement, decoration):
+    sides = decoration * 3
+
+    statement = "{} {} {}".format(sides, statement, sides)
+    top_bottom = decoration * len(statement)
+
+    print(top_bottom)
+    print(statement)
+    print(top_bottom)
+
+    return ""
+
 
 # Main routine under this line ******************************************
 
@@ -118,4 +138,3 @@ options_lists = [["1) Banana", "2) Pumpkin", "3) Apple", "4) Grape"],
 
 # The command which starts the question and answer portion of the game
 ask_questions()
-
