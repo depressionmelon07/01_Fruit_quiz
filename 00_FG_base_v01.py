@@ -6,7 +6,7 @@
  If they say anything else: error message displayed 
  V1 - laying base with first component 
  Pari Rao 11/08/22 
-# PROGRAM DESC*****************'''
+ PROGRAM DESC*****************'''
 
 # Functions under this line **********************************************
 def yes_no(question):
