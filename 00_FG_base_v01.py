@@ -1,6 +1,6 @@
 ''' PROGRAM DESC*****************
  Program is a base for fruit_quiz game. 
- Program Program asks user if they have played game before.
+ Program asks user if they have played game before.
  If they respond 'yes:'program continues'
  If they respond 'no': display instructions
  If they say anything else: error message displayed 
