@@ -1,8 +1,12 @@
-# PROGRAM JOBS*****************
-# If they respond yes, output 'program continues'
-# If they say something else, an error message in printed
-# If they respond no, output 'display instructions'
-# PROGRAM JOBS*****************
+''' PROGRAM DESC*****************
+ Program is a base for fruit_quiz game. 
+ Program Program asks user if they have played game before.
+ If they respond 'yes:'program continues'
+ If they respond 'no': display instructions
+ If they say anything else: error message displayed 
+ V1 - laying base with first component 
+ Pari Rao 11/08/22 
+# PROGRAM DESC*****************'''
 
 # Functions under this line **********************************************
 def yes_no(question):
